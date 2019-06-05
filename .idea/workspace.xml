@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b69b2af4-5558-42a2-8824-a1064660a082" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/R_User_Library.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/libs/Helper.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/libs/UrlManager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/libs/admin/AdminService.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/libs/book/BookService.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/libs/log/LogService.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/libs/log/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/libs/member/CartService.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/libs/member/MemberService.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/libs/pay/PayService.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/libs/queue/QueueService.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/libs/upload/UploadService.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/libs/upload/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/models/admin/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/controllers/admin/Admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/controllers/admin/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/controllers/book/Book.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/controllers/book/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/controllers/finance/Finance.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/controllers/finance/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/controllers/member/Member.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/controllers/member/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/controllers/mini/Address.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/controllers/mini/Book.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/controllers/mini/Cart.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/controllers/mini/Member.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/controllers/mini/My.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/controllers/mini/Order.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/controllers/mini/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/controllers/stat/Stat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/controllers/stat/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/controllers/static.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/controllers/upload/Upload.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/controllers/upload/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/interceptors/ApiAuthInterceptor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/interceptors/AuthInterceptor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/interceptors/ErrorInterceptor.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/controllers/admin/Admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="23" column="30" lean-forward="true" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/templates/admin/edit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-795" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/templates/user/edit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-822" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+              <folding>
+                <element signature="e#24#47#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/web/controllers/book/Book.py" />
+        <option value="$PROJECT_DIR$/web/controllers/finance/Finance.py" />
+        <option value="$PROJECT_DIR$/web/controllers/stat/Stat.py" />
+        <option value="$PROJECT_DIR$/web/controllers/upload/Upload.py" />
+        <option value="$PROJECT_DIR$/web/controllers/member/Member.py" />
+        <option value="$PROJECT_DIR$/web/controllers/mini/Book.py" />
+        <option value="$PROJECT_DIR$/web/controllers/mini/Address.py" />
+        <option value="$PROJECT_DIR$/web/controllers/mini/Cart.py" />
+        <option value="$PROJECT_DIR$/web/controllers/mini/Member.py" />
+        <option value="$PROJECT_DIR$/web/controllers/mini/My.py" />
+        <option value="$PROJECT_DIR$/web/controllers/mini/Order.py" />
+        <option value="$PROJECT_DIR$/web/interceptors/ApiAuthInterceptor.py" />
+        <option value="$PROJECT_DIR$/web/interceptors/AuthInterceptor.py" />
+        <option value="$PROJECT_DIR$/web/interceptors/ErrorInterceptor.py" />
+        <option value="$PROJECT_DIR$/common/libs/book/BookService.py" />
+        <option value="$PROJECT_DIR$/common/libs/login/LoginService.py" />
+        <option value="$PROJECT_DIR$/common/libs/member/MemberService.py" />
+        <option value="$PROJECT_DIR$/common/libs/member/CartService.py" />
+        <option value="$PROJECT_DIR$/common/libs/pay/PayService.py" />
+        <option value="$PROJECT_DIR$/common/libs/queue/QueueService.py" />
+        <option value="$PROJECT_DIR$/common/libs/LogService.py" />
+        <option value="$PROJECT_DIR$/common/libs/UploadService.py" />
+        <option value="$PROJECT_DIR$/web/controllers/login/Login.py" />
+        <option value="$PROJECT_DIR$/web/controllers/user/Login.py" />
+        <option value="$PROJECT_DIR$/web/static.py" />
+        <option value="$PROJECT_DIR$/web/controllers/static.py" />
+        <option value="$PROJECT_DIR$/web/controllers/index.py" />
+        <option value="$PROJECT_DIR$/manager.py" />
+        <option value="$PROJECT_DIR$/common/libs/UrlManager.py" />
+        <option value="$PROJECT_DIR$/config/base_setting.py" />
+        <option value="$PROJECT_DIR$/common/libs/Helper.py" />
+        <option value="$PROJECT_DIR$/common/libs/user/UserService.py" />
+        <option value="$PROJECT_DIR$/common/libs/admin/AdminService.py" />
+        <option value="$PROJECT_DIR$/web/controllers/user/User.py" />
+        <option value="$PROJECT_DIR$/common/models/admin/Admin.py" />
+        <option value="$PROJECT_DIR$/web/controllers/account/Account.py" />
+        <option value="$PROJECT_DIR$/www.py" />
+        <option value="$PROJECT_DIR$/application.py" />
+        <option value="$PROJECT_DIR$/web/controllers/admin/Admin.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="523" />
+    <option name="y" value="24" />
+    <option name="width" value="1293" />
+    <option name="height" value="973" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Capstone_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Capstone_Project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Capstone_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Capstone_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Capstone_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Capstone_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="libs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Capstone_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Capstone_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Capstone_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Capstone_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Capstone_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Capstone_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Capstone_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Capstone_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Capstone_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Capstone_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Capstone_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Capstone_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Capstone_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Capstone_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Capstone_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Capstone_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Capstone_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Capstone_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Capstone_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Capstone_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Capstone_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Capstone_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="error" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Capstone_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Capstone_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="finance" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Capstone_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Capstone_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="food" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Capstone_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Capstone_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="index" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Capstone_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Capstone_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="member" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Capstone_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Capstone_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="stat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Capstone_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Capstone_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\TIM58\Documents\GitHub\Capstone_Project\common\models\admin" />
+      <recent name="C:\Users\TIM58\Documents\GitHub\Capstone_Project\web\controllers" />
+      <recent name="C:\Users\TIM58\Documents\GitHub\Capstone_Project\common\libs" />
+      <recent name="C:\Users\TIM58\Documents\GitHub\Capstone_Project\common\libs\upload" />
+      <recent name="C:\Users\TIM58\Documents\GitHub\Capstone_Project\common\libs\log" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b69b2af4-5558-42a2-8824-a1064660a082" name="Default Changelist" comment="" />
+      <created>1559752198100</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1559752198100</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="523" y="24" width="1293" height="973" extended-state="0" />
+    <layout>
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.17842661" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Python Console" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.35876042" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="R Packages" />
+      <window_info anchor="right" id="R Graphics" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/web/controllers/book/Book.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/controllers/finance/Finance.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/controllers/stat/Stat.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/controllers/upload/Upload.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/controllers/member/Member.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/controllers/mini/Book.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/controllers/mini/Address.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/controllers/mini/Cart.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/controllers/mini/Member.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/controllers/mini/My.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/controllers/mini/Order.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/interceptors/ApiAuthInterceptor.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/interceptors/AuthInterceptor.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/interceptors/ErrorInterceptor.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/libs/book/BookService.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/libs/member/MemberService.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/libs/pay/PayService.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/libs/queue/QueueService.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/libs/log/LogService.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/libs/upload/UploadService.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/libs/member/CartService.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/controllers/static.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#24#71#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/controllers/index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/production_setting.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="14" selection-start-line="14" selection-end-line="15" />
+          <folding>
+            <element signature="e#24#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/libs/UrlManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#24#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/libs/Helper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="8" column="15" lean-forward="true" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/libs/admin/AdminService.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="12" column="41" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="41" />
+          <folding>
+            <element signature="e#24#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/models/admin/Admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+          <folding>
+            <element signature="e#16#84#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/controllers/account/Account.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/local_setting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/base_setting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+          <folding>
+            <element signature="e#24#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/controllers/admin/Admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="23" column="30" lean-forward="true" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/user/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-822" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/admin/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-795" />
+      </provider>
+    </entry>
+  </component>
+</project>
