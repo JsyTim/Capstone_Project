@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<cu-custom bgColor="bg-orange"><view slot="content">昕悦</view></cu-custom>
+<view class="UCenter-bg">
+  <view class="flex justify-center">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-gradual-orange shadow'> 获取头像昵称 </button>
+    <block wx:else>
+      <view class='text-center'>
+        <view class="cu-avatar xl round solids" style="background-image:url({{userInfo.avatarUrl}})"></view>
+        <view class="padding">{{userInfo.nickName}}</view>
+      </view>
+    </block>
+  </view>
+  <!--已登录，无需获取userInfo-->
+  <view class='padding-xl' wx:if="{{regFlag==true}}">
+    <button class='cu-btn shadow lg block' bindtap="goToIndex">走吧，买书去~</button>
+  </view>
+  <view class='padding-xl' wx:if="{{regFlag==false}}">
+    <button class='cu-btn shadow lg block' open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">授权登录</button>
+  </view>
+</view>

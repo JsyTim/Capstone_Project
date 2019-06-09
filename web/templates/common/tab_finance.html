@@ -2,10 +2,10 @@
     <div class="col-lg-12">
         <div class="tab_title">
             <ul class="nav nav-pills">
-                <li {% if current == "index" %} class="current" {% endif %}>
+                <li {% if current=="index" %} class="current" {% endif %}>
                     <a href="{{ buildUrl('/finance/index') }}">订单列表</a>
                 </li>
-                <li {% if current == "account" %} class="current" {% endif %}>
+                <li {% if current=="account" %} class="current" {% endif %}>
                     <a href="{{ buildUrl('/finance/account') }}">财务流水</a>
                 </li>
             </ul>

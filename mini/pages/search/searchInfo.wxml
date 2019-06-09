@@ -1,0 +1,3 @@
+<!--pages/search/searchInfo.wxml-->
+<cu-custom bgColor="bg-orange" isBack="{{true}}"><view slot="content">搜索详情 </view></cu-custom>
+<text>pages/search/searchInfo.wxml</text>

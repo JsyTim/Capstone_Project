@@ -4,6 +4,7 @@ from flask_script import Manager
 from flask_sqlalchemy import SQLAlchemy
 import os
 
+
 class Application(Flask):
     def __init__(self, import_name, template_folder=None, root_path=None):
         # used customized template_folder & root_path, here needed to be overloaded
@@ -27,7 +28,7 @@ app.config['JSON_AS_ASCII'] = False
 '''
 function template
 '''
-# for using UrlManager method in html files
+# for using UrlManager method in html files/ for input js file in html
 from common.libs.UrlManager import UrlManager
 app.add_template_global(UrlManager.buildStaticUrl, 'buildStaticUrl')
 app.add_template_global(UrlManager.buildUrl, 'buildUrl')

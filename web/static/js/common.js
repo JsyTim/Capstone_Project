@@ -77,8 +77,8 @@ var common_ops = {
         }
 
 
-        if(  pathname.indexOf("/food") > -1  ){
-            nav_name = "food";
+        if(  pathname.indexOf("/book") > -1  ){
+            nav_name = "book";
         }
 
         if(  pathname.indexOf("/member") > -1  ){

@@ -1,0 +1,61 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/main/main",
+    "pages/book/bookinfo",
+    "pages/order/order",
+    "pages/order/orderinfo",
+    "pages/order/orderlist",
+    "pages/address/addressList",
+    "pages/address/addressSet",
+    "pages/cart/cart",
+    "pages/forum/forum",
+    "pages/scan/scan",
+    "pages/search/search",
+    "pages/search/searchInfo",
+    "pages/my/my",
+    "pages/switch/switch"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#f37b1d",
+    "navigationBarTitleText": "昕悦",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+        "color": "#6e6d6b",
+        "selectedColor": "#f37b1d",
+        "borderStyle": "black",
+        "backgroundColor": "#fff",
+        "list": [
+            {
+                "pagePath": "pages/main/main",
+                "iconPath": "images/tab/home.png",
+                "selectedIconPath": "images/tab/home_cur.png",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/scan/scan",
+                "iconPath": "images/tab/scan.png",
+                "selectedIconPath": "images/tab/scan_cur.png",
+                "text": "卖书"
+            },
+            {
+                "pagePath": "pages/switch/switch",
+                "iconPath": "images/tab/cart.png",
+                "selectedIconPath": "images/tab/cart_cur.png",
+                "text": "购物车"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "iconPath": "images/tab/my.png",
+                "selectedIconPath": "images/tab/my_cur.png",
+                "text": "我的"
+            }
+        ]
+    }
+}

@@ -56,8 +56,8 @@ def iPagination( params ):
 统一渲染方法: added current_user in every different template
 '''
 def ops_render(template, context = {}):
-    if 'current_user' in g:
-        context['current_user'] = g.current_user
+    if 'current_admin' in g:
+        context['current_admin'] = g.current_admin
     return render_template(template, **context)
 
 
@@ -75,3 +75,69 @@ def getFormatDate( date=None, format="%Y-%m-%d %H:%M:%S" ):
     if date is None:
         date = datetime.datetime.now()
     return date.strftime(format)
+
+
+'''
+根据某个字段获取一个dic出来
+db_model: ORM model
+select_filed: file
+key_field: key
+id_list: id
+'''
+def getDictFilterField(db_model, select_filed, key_field, id_list):
+    ret = {}
+    query = db_model.query
+    if id_list and len(id_list) > 0:
+        query = query.filter(select_filed.in_(id_list))
+    list = query.all()
+    if not list:
+        return ret
+    for item in list:
+        if not hasattr(item, key_field):
+            break
+        ret[getattr(item, key_field)] = item
+    print(ret)
+    return ret
+
+
+#从某个field中获取想要的数据
+def selectFilterObj(obj, field):
+    ret = []
+    for item in obj:
+        if not hasattr(item, field):
+            break
+        if getattr(item, field) in ret:
+            continue
+        ret.append(getattr(item, field))
+    return ret
+
+
+#从数据库中按key取出字典
+def getDictListFilterField(db_model, select_filed, key_field, id_list):
+    ret = {}
+    query = db_model.query
+    if id_list and len(id_list) > 0:
+        query = query.filter(select_filed.in_(id_list))
+    list = query.all()
+    if not list:
+        return ret
+    for item in list:
+        if not hasattr(item, key_field):
+            break
+        if getattr(item, key_field) not in ret:
+            ret[getattr(item, key_field)] = []
+        print(getattr(item, key_field))
+        ret[getattr(item, key_field)].append(item)
+    return ret
+
+def vertifyEmail():
+    return
+
+def vertifyNickname():
+    return
+
+def vertifyPhone():
+    return
+
+def vertifyPwd():
+    return

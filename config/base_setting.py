@@ -7,12 +7,17 @@ AUTH_COOKIE_NAME = 'BOOK'
 
 ##过滤url
 IGNORE_URLS = [
-    "^/admin/admin"
+    "^/admin/login"
+
 ]
 
 IGNORE_CHECK_LOGIN_URLS = [
     "^/static",
     "^/favicon.ico"
+]
+
+MINI_IGNORE_URLS = [
+    "^/mini"
 ]
 
 APP = {

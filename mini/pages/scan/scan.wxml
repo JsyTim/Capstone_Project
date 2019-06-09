@@ -1,0 +1,34 @@
+<!--pages/scan/index.wxml-->
+<cu-custom bgColor="bg-orange"><view slot="content">扫码卖书</view></cu-custom>
+
+<view class="container">
+  <view class="flow">
+    <image class="sell-image" src="../../images/scan/1.png"></image>
+    <text class="flow-text">手机扫码\n看收购价</text>
+  </view>
+  <view class="flow">
+    <image class="sell-image" src="../../images/scan/2.png"></image>
+    <text class="flow-text">快递免费\n上门取书</text>
+  </view>
+  <view class="flow">
+    <image class="sell-image" src="../../images/scan/3.png"></image>
+    <text class="flow-text">审核通过\n书款到账</text>
+  </view>
+
+
+    <view class="cu-list menu {{'sm-border'}} ">
+      <view class="cu-item {{'arrow'}}">
+        <navigator class="content line-white" hover-class="none" url="../list/list" open-type="redirect">
+          <text class="cuIcon-noticefill text-yellow"></text>
+          <text class="text-grey">了解更多买书规则</text>
+        </navigator>
+      </view>
+    </view>
+
+
+    <view class="flex solid-bottom padding justify-center padding-top-xl">
+        <button class = "cu-btn bg-orange round lg shadow" bindtap="scanCode">
+          <text class="cuIcon-scan lg text-white"> 扫码卖书</text>
+        </button>
+    </view>
+</view>

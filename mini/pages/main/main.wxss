@@ -1,0 +1,57 @@
+/* pages/main/main.wxss */
+@import "../../wxSearchView/wxSearchView.wxss";
+.tower-swiper .tower-item {
+  transform: scale(calc(0.5 + var(--index) / 10));
+  margin-left: calc(var(--left) * 100rpx - 150rpx);
+  z-index: var(--index);
+}
+
+scroll-view {                /*最好不要去设置高度*/
+  white-space:nowrap;
+  padding-top:15rpx;
+  padding-bottom:15rpx;
+  background-color:#fafafa;
+}
+
+scroll-view view{
+  display: inline-block;
+  width: auto;
+  height: 100rpx;
+  padding: 10rpx;
+}
+
+.content-container {
+    width: 100%;
+    background: #fff;
+    margin-top: 5rpx;
+}
+.van-card{
+  margin-top:5rpx;
+}
+.van-card__thumb{
+   width:120px !important;
+   height:140px !important;
+}
+
+.van-card__title {
+  padding-top:15rpx;
+  padding-bottom:10rpx;
+  font-size:30rpx;
+  line-height:30px;
+}
+.van-card__desc {
+  line-height:50px !important;
+}
+
+.van-card__price{
+  display:inline-block;
+  padding-top:20rpx;
+  font-size:30rpx !important;
+  font-weight:300 !important;
+  color:#000  !important
+}
+
+.van-card__origin-price{
+  font-size:12px !important;
+  color:#f44 !important;
+}

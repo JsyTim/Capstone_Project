@@ -1,0 +1,111 @@
+<cu-custom bgColor="bg-orange" isBack="{{true}}"><view slot="content">图书详情</view></cu-custom>
+<view class="main-container">
+    <!--图书详情-->
+      <van-card
+        origin-price="8.94"
+        price="{{price}}"
+        title="{{title}}"
+        thumb="{{main_image}}"
+      >
+        <view slot="desc" class="">
+          <text style="font-size:30rpx; padding-left:8rpx;">{{author}}</text>
+          <van-rate
+            readonly
+            value="{{ grade/2 }}"
+            bind:change="onChange"
+          />
+        </view>
+        <view slot="tags" style="padding-top:110rpx;">
+          <van-tag size="large" round color="#f2826a" plain>3折</van-tag>
+        </view>
+
+      </van-card>
+
+
+    <!--内容介绍-->
+    <view class="cu-bar bg-white">
+      <view class="action border-title">
+        <text class="text-lg text-bold text-orange">内容简介</text>
+        <text class="bg-gradual-orange" style="width:3rem"></text>
+      </view>
+    </view>
+    <view class="cu-bar bg-white">
+        <text class="title text-df padding-top-xs margin-lr-lg" wx:if="{{desc != ''}}">
+            {{desc}}
+        </text>
+        <text class="title" wx:if="{{desc == ''}}">
+            暂无简介
+        </text>
+    </view>
+
+    <!--相关书籍-->
+    <view class="cu-bar bg-white padding-top-xl">
+      <view class="action border-title">
+        <text class="text-lg text-bold text-orange">喜欢本书的人还可能喜欢</text>
+        <text class="bg-gradual-orange" style="width:3rem"></text>
+      </view>
+    </view>
+    <view class="recommended-container">
+        <view class="book">
+            <image src="https://img3.doubanio.com/view/subject/l/public/s2976745.jpg" bindtap="bookDetailBtn" id="{{bookRecommend[0].bookId}}"></image>
+            <image src="https://img3.doubanio.com/view/subject/l/public/s3695882.jpg" bindtap="bookDetailBtn" id="{{bookRecommend[1].bookId}}"></image>
+            <image src="https://img1.doubanio.com/view/subject/l/public/s2838737.jpg" bindtap="bookDetailBtn" id="{{bookRecommend[2].bookId}}">半生缘</image>
+        </view>
+        <view class="book">
+            <image src="http:{{bookRecommend[3].bookImageBig}}" bindtap="bookDetailBtn" id="{{bookRecommend[3].bookId}}"></image>
+            <image src="http:{{bookRecommend[4].bookImageBig}}" bindtap="bookDetailBtn" id="{{bookRecommend[4].bookId}}"></image>
+            <image src="http:{{bookRecommend[5].bookImageBig}}" bindtap="bookDetailBtn" id="{{bookRecommend[5].bookId}}"></image>
+        </view>
+    </view>
+
+    <!--执行操作
+    <view class="operate-container">
+        <text class="title">您可以执行的操作</text>
+        <view class="btn btn-left"  wx:if="{{scanCode == 1}}" bindtap="borrowBtn" id="{{book.bookId}}">借阅本书</view>
+        <view class="disable-btn btn-left"  wx:if="{{scanCode == 0}}" bindtap="reserveBtn" id="{{book.bookId}}">预订本书</view>
+        <view class="btn btn-right" id="{{book.bookId}}" bindtap="addForumBtn">写文推荐</view>
+    </view>
+    -->
+
+    <!--底部-->
+      <view class="footer-box">
+          <view class="shop-cart-btn" bindtap="goShopCar">
+              <view style='position:absolute;bottom:10rpx;'><van-icon name="shopping-cart" color="grey" size="30px" info="{{shopCarNum}}"/></view>
+          </view>
+          <view class="join-shop-cart" bindtap="toAddShopCar">加入购物车</view>
+          <view class="now-buy" bindtap="tobuy">立即购买</view>
+     </view>
+
+     <view class="show-popup" hidden="{{hideShopPopup}}" >
+          <view class="popup-mask" bindtap="closePopupTap"></view>
+          <view class="popup-contents">
+               <view class="pop-goods-info">
+                  <view class="pop-img-box">
+                      <image src="{{main_image}}" class="goods-thumbnail"/>
+                  </view>
+                  <view class="pop-goods-des">
+                      <view class="pop-goods-title">{{title}}</view>
+                      <view class="pop-goods-price">¥ {{price}}</view>
+                  </view>
+                  <view class="pop-goods-close" bindtap="closePopupTap"></view>
+               </view>
+
+               <view class="buy-num-box">
+                  <view class="num-label">购买数量</view>
+                  <view class="num-box">
+                      <view class="num-jian {{buyNumber == buyNumMin ? 'hui': ''}}" bindtap="numJianTap">-</view>
+                      <view class="num-input">
+                         <input  type="number" value="{{buyNumber}}" disabled/>
+                      </view>
+                      <view class="num-jia {{buyNumber== buyNumMax ? 'hui': ''}}" bindtap="numJiaTap">+</view>
+                  </view>
+               </view>
+               <view class="popup-join-btn" wx:if="{{shopType =='addShopCar'}}" bindtap="addShopCar">
+                  加入购物车
+               </view>
+               <view class="popup-join-btn" wx:if="{{shopType =='tobuy'}}" bindtap="buyNow">
+                  立即购买
+               </view>
+          </view>
+      </view>
+</view>

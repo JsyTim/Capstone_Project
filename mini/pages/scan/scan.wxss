@@ -1,0 +1,31 @@
+/* pages/scan/index.wxss */
+.sell-image{
+  width:240rpx;
+  height:240rpx;
+}
+.container{
+  padding-top:50rpx;
+  background-color: white;
+  height:100%;
+  position: fixed;
+  width: 100%;
+}
+.flow{
+  padding: 0rpx;
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+}
+.flow-text{
+  font-size: 38rpx;
+  line-height:50rpx;
+  font-weight:100;
+}
+.read{
+  text-align: center;
+}
+.bott{
+  font-size:25rpx;
+  color: #a7a4a4;
+}

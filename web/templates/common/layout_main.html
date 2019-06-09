@@ -33,8 +33,8 @@
                     <a href="{{ buildUrl('/account/index') }}"><i class="fa fa-user fa-lg"></i> <span
                             class="nav-label"> 账号管理</span></a>
                 </li>
-                <li class="food">
-                    <a href="{{ buildUrl('/food/index') }}"><i class="fa fa-book fa-lg"></i> <span
+                <li class="book">
+                    <a href="{{ buildUrl('/book/index') }}"><i class="fa fa-book fa-lg"></i> <span
                             class="nav-label"> 图书管理</span></a>
                 </li>
                 <li class="member">
@@ -66,29 +66,29 @@
                             欢迎使用昕阅二手书商城管理后台
                         </span>
                     </li>
-                    <li class="dropdown user_info">
+                    <li class="dropdown admin_info">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
                             <img alt="image" class="img-circle" src="{{ buildStaticUrl('/images/common/avatar.png') }}"/>
                         </a>
                         <ul class="dropdown-menu dropdown-messages">
                             <li>
                                 <div class="dropdown-messages-box">
-                                    姓名：{{ current_user.nickname }} <a href="{{ buildUrl('/user/edit') }}" class="pull-right">编辑</a>
+                                    姓名：{{ current_admin.nickname }} <a href="{{ buildUrl('/admin/edit') }}" class="pull-right">编辑</a>
                                 </div>
                             </li>
                             <li class="divider"></li>
                             <li>
                                 <div class="dropdown-messages-box">
-                                    手机号码：{{ current_user.mobile }}
+                                    手机号码：{{ current_admin.mobile }}
                                 </div>
                             </li>
                             <li class="divider"></li>
                             <li>
                                 <div class="link-block text-center">
-                                    <a class="pull-left" href="{{ buildUrl('/user/reset-pwd') }}">
+                                    <a class="pull-left" href="{{ buildUrl('/admin/reset-pwd') }}">
                                         <i class="fa fa-lock"></i> 修改密码
                                     </a>
-                                    <a class="pull-right" href="{{ buildUrl('/user/logout') }}">
+                                    <a class="pull-right" href="{{ buildUrl('/admin/logout') }}">
                                         <i class="fa fa-sign-out"></i> 退出
                                     </a>
                                 </div>
@@ -106,7 +106,7 @@
 <!--通过main统一传入URL，这样在不同页面均可使用-->
 <div class="hidden hidden_layout_wrap">
     <input name="domain" value="{{ config.APP.domain }}">
-    <input name="prefix_url" value="{{ config.UPLOAD.prefix_url }}">
+    <input name ="prefix_url" value="{{ config.UPLOAD.prefix_url }}">
 </div>
 <script src="{{ buildStaticUrl('/plugins/jquery-2.1.1.js') }}"></script>
 <script src="{{ buildStaticUrl('/bootstrap/bootstrap.min.js') }}"></script>

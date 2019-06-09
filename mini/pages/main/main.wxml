@@ -1,0 +1,44 @@
+<!--pages/main/main.wxml-->
+<cu-custom bgColor="bg-orange"><view slot="content">昕悦</view></cu-custom>
+<view class="weui-search-bar">
+  <view class="weui-search-bar__form">
+    <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+      <input type="text" class="weui-search-bar__input"  disabled='true' placeholder="搜索书籍" bindtap="wxSearchTab"/>
+    </view>
+  </view>
+</view>
+
+<swiper class="margin-top-sm screen-swiper {{'square-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item id="{{item.id}}"bindtap="swiperClick" wx:for="{{swiperList}}" wx:key>
+    <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+    <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+  </swiper-item>
+</swiper>
+
+<scroll-view scroll-x>
+  <view class="scroll-x tag">
+    <view wx:for-items="{{tagList}}" wx:key="item" >
+      <button id="{{item.id}}" class="cu-btn shadow-blur {{activeCategoryId == item.id ? 'bg-gradual-orange':'bg-grey'}}" bindtap="tagClick">{{item.name}}</button>
+    </view>
+  </view>
+</scroll-view>
+
+<view wx:for="{{booklist}}">
+  <van-card
+    bindtap="cardClick"
+    id="{{item.id}}"
+    origin-price="{{item.oprice}}"
+    price="{{item.price}}"
+    title="{{item.title}}"
+    thumb="{{item.main_image}}"
+  >
+    <view slot="desc" class="">
+      <text style="font-size:25rpx;">{{item.author}}</text>
+      <text style="font-size:20rpx;">\n豆瓣评分: {{item.grade}}</text>
+    </view>
+    <view slot="tags" style="padding-top:60rpx;">
+      <van-tag size="medium" round color="#f2826a" plain>3.4折</van-tag>
+    </view>
+  </van-card>
+</view>

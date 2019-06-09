@@ -1,21 +1,21 @@
 {% extends "common/layout_main.html" %}
 {% block content %}
 {% include "common/tab_admin.html" %}
-<div class="row m-t  user_reset_pwd_wrap">
+<div class="row m-t  admin_reset_pwd_wrap">
     <div class="col-lg-12">
         <h2 class="text-center">修改密码</h2>
         <div class="form-horizontal m-t m-b">
             <div class="form-group">
                 <label class="col-lg-2 control-label">账号:</label>
                 <div class="col-lg-10">
-                    <label class="control-label">{{ current_user.login_name }}</label>
+                    <label class="control-label">{{ current_admin.login_name }}</label>
                 </div>
             </div>
             <div class="hr-line-dashed"></div>
             <div class="form-group">
                 <label class="col-lg-2 control-label">手机:</label>
                 <div class="col-lg-10">
-                    <label class="control-label">{{ current_user.mobile }}</label>
+                    <label class="control-label">{{ current_admin.mobile }}</label>
                 </div>
             </div>
             <div class="hr-line-dashed"></div>

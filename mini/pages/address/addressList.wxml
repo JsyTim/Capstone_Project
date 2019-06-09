@@ -1,0 +1,32 @@
+<!--pages/addressList/index.wxml-->
+<cu-custom bgColor="bg-orange"><view slot="content">地址列表</view></cu-custom>
+
+<view class="cu-list menu {{'sm-border'}} {{'card-menu margin-top'}}" value="{{list}}">
+  <view class="cu-item margin-top-sm" wx:for="{{list}}" wx:key="item">
+    <view class="content padding-tb-sm">
+      <view>
+        <text class="cuIcon-peoplefill text-orange text-lg margin-right-xs" ></text>
+        <text class="text-lg text-black">{{item.nickname}}</text>
+        <text class="margin-left-xl text-grey text-sm">{{item.mobile}}</text>
+      </view>
+      <view>
+        <text class="cuIcon-locationfill text-orange text-lg margin-right-xs margin-top-xxl"></text>
+        <text class="text-sm text-black">{{item.address}}</text>
+      </view>
+    </view>
+    <view class="action">
+      <text id="{{item.id}}" class="cuIcon-edit text-grey" bindtap="addressSet"></text>
+    </view>
+  </view>
+</view>
+
+<view class="add">
+  <view class="cu-list menu">
+    <view class="cu-item {{'arrow'}}">
+      <navigator class="content" hover-class="none" url="/pages/address/addressSet?id=0" open-type="redirect">
+        <text class="cuIcon-roundaddfill text-orange text-lg"></text>
+        <text class="text-grey">新增地址</text>
+      </navigator>
+    </view>
+  </view>
+</view>

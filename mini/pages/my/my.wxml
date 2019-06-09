@@ -1,0 +1,53 @@
+<cu-custom bgColor="bg-orange"><view slot="content">个人中心</view></cu-custom>
+
+<view class="UCenter-bg">
+  <view class="flex justify-center">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-gradual-orange shadow'> 获取头像昵称 </button>
+    <block wx:else>
+      <view class='text-center'>
+        <view class="cu-avatar xl round solids" style="background-image:url({{userInfo.avatarUrl}})"></view>
+        <view class="padding">{{userInfo.nickName}}</view>
+      </view>
+    </block>
+  </view>
+    <image src="https://image.weilanwl.com/gif/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+</view>
+
+<view class="padding flex text-center text-grey bg-white shadow-warp">
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-orange">{{visitTotal}}</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-attentionfill"></text> 买书数量</view>
+    </view>
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-blue">{{starCount}}</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-favorfill"></text> 卖书数量</view>
+    </view>
+    <view class="flex flex-sub flex-direction">
+      <view class="text-xxl text-green">{{forksCount}}</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-fork"></text> 点赞数量</view>
+    </view>
+</view>
+
+<view class="cu-list menu {{'sm-border'}} {{'card-menu margin-top'}}">
+  <view class="cu-item {{'arrow'}}">
+    <navigator class="content" hover-class="none" url="/order_list" open-type="redirect">
+      <text class="cuIcon-discoverfill text-orange"></text>
+      <text class="text-grey">我的订单</text>
+    </navigator>
+  </view>
+  <view class="cu-item {{'arrow'}}">
+    <navigator class="content" hover-class="none" url="/addressList" open-type="redirect">
+      <text class="cuIcon-discoverfill text-blue"></text>
+      <text class="text-grey">我的地址</text>
+    </navigator>
+  </view>
+  <view class="cu-item {{'arrow'}}">
+    <navigator class="content" hover-class="none" url="/comment" open-type="redirect">
+      <text class="cuIcon-discoverfill text-green"></text>
+      <text class="text-grey">我的评价</text>
+    </navigator>
+  </view>
+</view>

@@ -7,6 +7,7 @@ import string
 
 class AdminService():
 
+    # create AuthCode to check cookies to avoid malicious tampering in cookies
     @staticmethod
     def geneAuthCode(admin_info=None):
         m = hashlib.md5()
