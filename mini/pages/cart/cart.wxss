@@ -13,7 +13,6 @@ page{
   bottom: 0;
   left: 0;
 }
-
 .title-box{
     width: 100%;
     padding-top: 330rpx;
@@ -36,23 +35,22 @@ page{
     position:absolute;
     left:30%;
 }
-.list-top{
+.book_list-top{
     width: 100%;
-    height: 88rpx;
-    line-height: 88rpx;
+    height: 80rpx;
+    line-height: 80rpx;
     box-sizing: border-box;
     display: flex;
     justify-content:space-between;
     padding: 0 30rpx;
-    font-size: 28rpx;
-    align-items: center;
+    font-size: 30rpx;
+    align-items: right;
 }
-.list-top .label{
+.book_list-top .label{
     color: #000;
 }
-.list-top .edit-btn{
-    color: #999;
-    height: 100%;
+.book_list-top .edit-btn{
+    color: #f37b1d;
 }
 .goodsList{
     width: 100%;
@@ -70,11 +68,11 @@ page{
     width: 870rpx;
     box-sizing: border-box;
     transition: margin-left 0.2s ease-in-out;
-    background: url(http://cdn.static.54php.cn/mina_order/gou.png) no-repeat 30rpx center;
+    background: url(https://raw.githubusercontent.com/JsyTim/Capstone_Project/master/mini/images/cart/gou.png) no-repeat 30rpx center;
     background-size: 40rpx auto;
 }
 .a-goods-conts.active{
-    background: url(http://cdn.static.54php.cn/mina_order/gou-red.png) no-repeat 30rpx center;
+    background: url(https://raw.githubusercontent.com/JsyTim/Capstone_Project/master/mini/images/cart/gou_cur.png) no-repeat 30rpx center;
     background-size: 40rpx auto;
 }
 .goods-info{
@@ -170,7 +168,7 @@ page{
 
 .goods-info .img-box .img{
     width: 160rpx;
-    height:160rpx;
+    height:200rpx;
 }
 
 .a-goods-conts .delete-btn{
@@ -217,11 +215,11 @@ page{
 .jiesuan-box .all-selected{
     padding-left: 90rpx;
     color:#000000;
-    background: url('../../images/cart/gou.png') no-repeat 30rpx center;
+    background: url(https://raw.githubusercontent.com/JsyTim/Capstone_Project/master/mini/images/cart/gou.png) no-repeat 30rpx center;
     background-size: 40rpx auto;
 }
 .jiesuan-box .all-selected.active{
-    background: url('../../images/cart/gou_cur.png') no-repeat 30rpx center;
+    background: url(https://raw.githubusercontent.com/JsyTim/Capstone_Project/master/mini/images/cart/gou_cur.png) no-repeat 30rpx center;
     background-size: 40rpx auto;
 }
 .jiesuan-box .total{

@@ -9,7 +9,6 @@
     </view>
 
     <view class="book_list-top" wx:if="{{ book_list.length }}">
-        <view class="label">购物车</view>
         <view class="edit-btn" hidden="{{!saveHidden}}" bindtap="editTap">编辑</view>
         <view class="edit-btn" hidden="{{saveHidden}}" bindtap="saveTap">完成</view>
     </view>

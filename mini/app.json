@@ -9,7 +9,6 @@
     "pages/address/addressList",
     "pages/address/addressSet",
     "pages/cart/cart",
-    "pages/forum/forum",
     "pages/scan/scan",
     "pages/search/search",
     "pages/search/searchInfo",

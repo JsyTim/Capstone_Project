@@ -31,7 +31,6 @@ def orderInfo():
     book_ids = book_dic.keys()
     book_list = Book.query.filter(Book.book_id.in_(book_ids)).all()
     data_book_list = []
-    # print(book_list[0])
     yun_price = pay_price = decimal.Decimal(0.00)
     if book_list:
         for item in book_list:
@@ -40,19 +39,19 @@ def orderInfo():
                 "title": item.book_title,
                 "price": str(item.book_price),
                 'main_image': str(item.book_main_image),
-                'number': book_dic[str(item.book_id)]
+                'number': book_dic[item.book_id]
             }
-            pay_price = pay_price + item.book_price * int(book_dic[str(item.book_id)])
+            pay_price = pay_price + item.book_price * int(book_dic[item.book_id])
             data_book_list.append(tmp_data)
     # 获取地址
-    address_info = MemberAddress.query.filter_by(is_default=1, member_id=1, status=1).first()
+    address_info = MemberAddress.query.filter_by(is_default=1, member_id=member_info.id, status=1).first()
     default_address = ''
     if address_info:
         default_address = {
             "id": address_info.id,
             "name": address_info.nickname,
             "mobile": address_info.mobile,
-            "address": "%s%s%s%s"%(address_info.province_str, address_info.city_str, address_info.area_str, address_info.address )
+            "address": "%s%s%s%s"%(address_info.province_str, address_info.city_str, address_info.dist_str, address_info.address )
         }
     resp['data']['book_list'] = data_book_list
     resp['data']['pay_price'] = str(pay_price)
