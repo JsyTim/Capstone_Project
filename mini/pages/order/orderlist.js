@@ -16,7 +16,7 @@ Page({
     },
     orderDetail: function (e) {
         wx.navigateTo({
-            url: "/pages/my/order_info?order_sn=" + e.currentTarget.dataset.id
+            url: "/pages/order/orderinfo?order_sn=" + e.currentTarget.dataset.id
         })
     },
     onLoad: function (options) {
@@ -31,7 +31,7 @@ Page({
     getPayOrder:function(){
         var that = this;
         wx.request({
-            url: app.buildUrl("/my/order"),
+            url: app.buildUrl("/order"),
             header: app.getRequestHeader(),
             data: {
                 status: that.data.status[ that.data.currentType ]

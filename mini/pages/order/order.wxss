@@ -25,7 +25,7 @@
     width: 664rpx;
     box-sizing: border-box;
     padding-left: 100rpx;
-    background: url(http://cdn.static.54php.cn/mina_order/ico-addr.png) no-repeat 30rpx 35rpx;
+    background: url(https://raw.githubusercontent.com/JsyTim/Capstone_Project/master/mini/images/cart/location.png) no-repeat 30rpx 35rpx;
     background-size: 30rpx auto;
 }
 .show-address .name-tel{

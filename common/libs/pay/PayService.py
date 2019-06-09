@@ -14,18 +14,18 @@ class PayService():
     def __init__(self):
         pass
 
-    def createOrder(self,member_id, items=None, params=None):
+    def createOrder(self, member_id, items=None, params=None):
         resp = {'code': 200, 'msg': '操作成功~', 'data': {}}
         pay_price = decimal.Decimal(0.00)
         continue_cnt = 0
-        food_ids = []
+        book_ids = []
         for item in items:
             if decimal.Decimal(item['price']) < 0:
                 continue_cnt += 1
                 continue
 
             pay_price = pay_price + decimal.Decimal(item['price']) * int(item['number'])
-            food_ids.append(item['id'])
+            book_ids.append(item['id'])
 
         if continue_cnt >= len(items):
             resp['code'] = -1
@@ -33,19 +33,19 @@ class PayService():
             return resp
 
         yun_price = params['yun_price'] if params and 'yun_price' in params else 0
-        note = params['no te'] if params and 'note' in params else ''
+        note = params['note'] if params and 'note' in params else ''
         express_address_id = params['express_address_id'] if params and 'express_address_id' in params else 0
         express_info = params['express_info'] if params and 'express_info' in params else {}
-        yun_price = decimal.Decimal( yun_price )
+        yun_price = decimal.Decimal(yun_price)
         total_price = pay_price + yun_price
         try:
-            #为了防止并发库存出问题了，我们坐下selectfor update, 这里可以给大家演示下
-            tmp_food_list = db.session.query(Book).filter(Book.id.in_( food_ids ) )\
+            #为了防止并发库存出问题了，selectfor update
+            tmp_book_list = db.session.query(Book).filter(Book.book_id.in_(book_ids))\
                 .with_for_update().all()
 
-            tmp_food_stock_mapping = {}
-            for tmp_item in tmp_food_list:
-                tmp_food_stock_mapping[tmp_item.id] = tmp_item.stock
+            tmp_book_stock_mapping = {}
+            for tmp_item in tmp_book_list:
+                tmp_book_stock_mapping[tmp_item.book_id] = tmp_item.book_stock
 
             model_pay_order = PayOrder()
             model_pay_order.order_sn = self.geneOrderSn()
@@ -62,16 +62,16 @@ class PayService():
             db.session.add(model_pay_order)
             #db.session.flush()
             for item in items:
-                tmp_left_stock = tmp_food_stock_mapping[item['id']]
+                tmp_left_stock = tmp_book_stock_mapping[item['id']]
 
                 if decimal.Decimal(item['price']) < 0:
                     continue
 
                 if int(item['number']) > int(tmp_left_stock):
-                    raise Exception("您购买的这美食太火爆了，剩余：%s,你购买%s~~"%(tmp_left_stock, item['number']))
+                    raise Exception("您购买的这图书太火爆了，剩余：%s,你购买%s~~"%(tmp_left_stock, item['number']))
 
-                tmp_ret = Book.query.filter_by(id=item['id']).update({
-                    "stock": int(tmp_left_stock) - int(item['number'])
+                tmp_ret = Book.query.filter_by(book_id=item['id']).update({
+                    "book_stock": int(tmp_left_stock) - int(item['number'])
                 })
                 if not tmp_ret:
                     raise Exception("下单失败请重新下单")
@@ -81,7 +81,7 @@ class PayService():
                 tmp_pay_item.member_id = member_id
                 tmp_pay_item.quantity = item['number']
                 tmp_pay_item.price = item['price']
-                tmp_pay_item.food_id = item['id']
+                tmp_pay_item.book_id = item['id']
                 tmp_pay_item.note = note
                 tmp_pay_item.updated_time = tmp_pay_item.created_time = getCurrentDate()
                 db.session.add(tmp_pay_item)
@@ -96,10 +96,10 @@ class PayService():
             }
         except Exception as e:
             db.session.rollback()
-            print(e)
+            # print(e)
             resp['code'] = -1
             resp['msg'] = "下单失败请重新下单"
-            resp['msg'] = str(e)
+            # resp['msg'] = str(e)
             return resp
         return resp
 
@@ -114,13 +114,13 @@ class PayService():
         if pay_order_items:
             #需要归还库存
             for item in pay_order_items:
-                tmp_food_info = Book.query.filter_by(id=item.food_id).first()
-                if tmp_food_info:
-                    tmp_food_info.stock = tmp_food_info.stock + item.quantity
-                    tmp_food_info.updated_time = getCurrentDate()
-                    db.session.add(tmp_food_info)
+                tmp_book_info = Book.query.filter_by(book_id=item.book_id).first()
+                if tmp_book_info:
+                    tmp_book_info.book_stock = tmp_book_info.book_stock + item.quantity
+                    tmp_book_info.updated_time = getCurrentDate()
+                    db.session.add(tmp_book_info)
                     db.session.commit()
-                    BookService.setStockChangeLog(item.food_id, item.quantity, "订单取消")
+                    BookService.setStockChangeLog(item.book_id, item.quantity, "订单取消")
 
         pay_order_info.status = 0
         pay_order_info.updated_time = getCurrentDate()
@@ -143,7 +143,7 @@ class PayService():
             pay_order_items = PayOrderItem.query.filter_by( pay_order_id = pay_order_id ).all()
             for order_item in pay_order_items:
                 tmp_model_sale_log = BookSaleChangeLog()
-                tmp_model_sale_log.food_id = order_item.food_id
+                tmp_model_sale_log.book_id = order_item.book_id
                 tmp_model_sale_log.quantity = order_item.quantity
                 tmp_model_sale_log.price = order_item.price
                 tmp_model_sale_log.member_id = order_item.member_id
@@ -164,7 +164,7 @@ class PayService():
         return True
 
     def addPayCallbackData(self, pay_order_id=0, type='pay', data=''):
-        # model_callback = PayOrderCallbackData()
+        model_callback = PayOrderCallbackData()
         model_callback.pay_order_id = pay_order_id
         if type == "pay":
             model_callback.pay_data = data

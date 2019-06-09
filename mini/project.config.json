@@ -45,7 +45,7 @@
 				{
 					"id": 0,
 					"name": "custome",
-					"pathName": "pages/cart/cart",
+					"pathName": "pages/order/orderlist",
 					"query": "",
 					"scene": null
 				}

@@ -34,14 +34,16 @@ def orderInfo():
     yun_price = pay_price = decimal.Decimal(0.00)
     if book_list:
         for item in book_list:
+            print(book_dic)
+            print(item.book_id)
             tmp_data = {
                 "id": item.book_id,
                 "title": item.book_title,
                 "price": str(item.book_price),
                 'main_image': str(item.book_main_image),
-                'number': book_dic[item.book_id]
+                'number': book_dic[str(item.book_id)]
             }
-            pay_price = pay_price + item.book_price * int(book_dic[item.book_id])
+            pay_price = pay_price + item.book_price * int(book_dic[str(item.book_id)])
             data_book_list.append(tmp_data)
     # 获取地址
     address_info = MemberAddress.query.filter_by(is_default=1, member_id=member_info.id, status=1).first()
@@ -76,13 +78,13 @@ def orderCreate():
 
     if len(items) < 1:
         resp['code'] = -1
-        resp['msg'] = "下单失败：没有选择商品~~"
+        resp['msg'] = "下单失败：没有选择商品"
         return jsonify(resp)
 
-    address_info = MemberAddress.query.filter_by( id = express_address_id ).first()
+    address_info = MemberAddress.query.filter_by(id=express_address_id).first()
     if not address_info or not address_info.status:
         resp['code'] = -1
-        resp['msg'] = "下单失败：快递地址不对~~"
+        resp['msg'] = "下单失败：快递地址无效"
         return jsonify(resp)
 
     member_info = g.member_info
@@ -93,7 +95,7 @@ def orderCreate():
         'express_info': {
             'mobile': address_info.mobile,
             'nickname': address_info.nickname,
-            "address": "%s%s%s%s"%(address_info.province_str, address_info.city_str, address_info.area_str, address_info.address )
+            "address": "%s%s%s%s"%(address_info.province_str, address_info.city_str, address_info.dist_str, address_info.address)
         }
     }
     resp = target.createOrder(member_info.id, items, params)
