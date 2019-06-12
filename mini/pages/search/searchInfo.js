@@ -1,66 +1,40 @@
 // pages/search/searchInfo.js
+const app = getApp()
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
 
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onLoad: function (e) {
+    var that = this;
+    that.setData({
+        mix_kw: e.searchValue
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
-
+    var that = this;
+    that.getBannerAndCat();
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  getBannerAndCat: function () {
+      var that = this;
+      wx.request({
+          url: app.buildUrl("/book/search"),
+          header: app.getRequestHeader(),
+          data: {
+              mix_kw:that.data.mix_kw
+          },
+          success: function (res) {
+              var resp = res.data;
+              if (resp.code != 200) {
+                  app.alert({"content": resp.msg});
+                  return;
+              }
+              that.setData({
+                  booklist:resp.data.list,
+              });
+          }
+      });
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

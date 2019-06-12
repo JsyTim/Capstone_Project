@@ -26,7 +26,7 @@
       </view>
     </view>
 
-
+<van-toast id="van-toast" />
     <view class="flex solid-bottom padding justify-center padding-top-xl">
         <button class = "cu-btn bg-orange round lg shadow" bindtap="scanCode">
           <text class="cuIcon-scan lg text-white"> 扫码卖书</text>

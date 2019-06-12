@@ -41,7 +41,7 @@ Page({
     this.checkLogin();
   },
   goToIndex:function(){
-    wx.navigateTo({
+    wx.switchTab({
         url: '/pages/main/main',
     });
   },

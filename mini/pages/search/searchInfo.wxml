@@ -1,3 +1,22 @@
 <!--pages/search/searchInfo.wxml-->
 <cu-custom bgColor="bg-orange" isBack="{{true}}"><view slot="content">搜索详情 </view></cu-custom>
-<text>pages/search/searchInfo.wxml</text>
+
+
+<view wx:for="{{booklist}}">
+  <van-card
+    bindtap="cardClick"
+    id="{{item.id}}"
+    origin-price="{{item.oprice}}"
+    price="{{item.price}}"
+    title="{{item.title}}"
+    thumb="{{item.main_image}}"
+  >
+    <view slot="desc" class="">
+      <text style="font-size:25rpx;">{{item.author}}</text>
+      <text style="font-size:20rpx;">\n豆瓣评分: {{item.grade}}</text>
+    </view>
+    <view slot="tags" style="padding-top:60rpx;">
+      <van-tag size="medium" round color="#f2826a" plain>3.0折</van-tag>
+    </view>
+  </van-card>
+</view>

@@ -29,7 +29,7 @@ def cartIndex():
                 "number": item.quantity,
                 "book_id": item.book_id,
                 "title": tmp_book_info.book_title,
-                "price": str(tmp_book_info.book_price),
+                "price": str(round((float(tmp_book_info.book_oprice)*float(tmp_book_info.book_degrees)/10),2)),
                 "main_image": str(tmp_book_info.book_main_image),
                 "active": True
             }

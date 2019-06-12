@@ -1,2 +1,2 @@
-<cu-custom bgColor="bg-orange"><view slot="content">搜索</view></cu-custom>
+<cu-custom bgColor="bg-orange" isBack="{{true}}"><view slot="content">搜索</view></cu-custom>
 <include src="../../wxSearchView/wxSearchView.wxml" />

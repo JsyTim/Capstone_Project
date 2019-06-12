@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+     "van-card": "../../../vant/card/index",
+     "van-tag": "../../../vant/tag/index",
+      "van-rate": "../../../vant/rate/index"
+    }
 }

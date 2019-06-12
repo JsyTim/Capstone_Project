@@ -17,6 +17,9 @@ Page({
         shopType: "addShopCar",//购物类型，加入购物车或立即购买，默认为加入购物车,
         commentCount:2,
         shopCarNum:'',
+        image_url1:'https://img3.doubanio.com/view/subject/l/public/s2976745.jpg',
+        image_url2:'https://img3.doubanio.com/view/subject/l/public/s3695882.jpg',
+        image_url3:'https://img1.doubanio.com/view/subject/l/public/s2838737.jpg'
     },
     onLoad: function (option) {
       app.console(option);
@@ -149,6 +152,7 @@ Page({
                     main_image:resp.data.main_image,
                     desc: resp.data.desc,
                     buyNumMax: resp.data.stock,
+                    degrees:resp.data.degrees
                 });
             }
         });

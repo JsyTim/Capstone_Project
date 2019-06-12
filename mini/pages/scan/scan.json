@@ -1,6 +1,7 @@
 {
     "navigationBarTitleText":  "扫码卖书",
     "usingComponents": {
-      "van-dialog": "../../vant/dialog/index"
+      "van-dialog": "../../vant/dialog/index",
+      "van-toast": "../../vant/toast/index"
     }
 }

@@ -16,26 +16,36 @@ def scan():
     req = request.values
     isbn = int(req['isbn']) if 'isbn' in req else 0
     print(isbn)
-    # book_info = Book.query.filter_by(book_id=id).first()
-    # if not book_info or book_info.book_status == 0:
-    #     resp['code'] = -1
-    #     resp['msg'] = "图书已下架"
-    #     return jsonify(resp)
-    #
-    # resp['data'] = {
-    #     "id": book_info.book_id,
-    #     "title": book_info.book_title,
-    #     "author": book_info.book_author,
-    #     "price": str(book_info.book_price),
-    #     "oprice": str(book_info.book_oprice),
-    #     'main_image': book_info.book_main_image,
-    #     'grade': str(round(book_info.book_grade, 1)),
-    #     "press": book_info.book_press,
-    #     "binding": book_info.book_binding,
-    #     "desc": book_info.book_desc,
-    #     "stock": book_info.book_stock,
-    #     "tags": book_info.tags,
-    #     "total_count": book_info.book_total_count,
-    #     "comment_count": book_info.book_comment_count,
-    # }
+    book_info = Book.query.filter_by(book_isbn13=isbn).first()
+    if book_info:
+        resp['data'] = {
+            "id": book_info.book_id,
+            "title": book_info.book_title,
+            "author": book_info.book_author,
+            "price": str(book_info.book_price),
+            "oprice": str(book_info.book_oprice),
+            'main_image': book_info.book_main_image,
+            'grade': str(round(book_info.book_grade, 1)),
+        }
+        return jsonify(resp)
+    else:
+        book_info = BookService.getBookInfo(str(isbn))
+        discount = 0.3
+        # discount = BookService.caldiscount(book_info.book_author)
+        if not book_info:
+            resp['code'] = -1
+            resp['msg'] = "无法获取图书信息"
+            return jsonify(resp)
+        elif float(book_info['rating']['average']) < 7.0:
+            resp['code'] = -1
+            resp['msg'] = "此书不收"
+            return jsonify(resp)
+        else:
+            resp['data'] = {
+                "title": book_info['title'],
+                "author": book_info['author'],
+                "price": str(float(book_info['price'])*float(discount)),
+                'main_image': book_info['image'],
+                'grade': str(book_info['rating']['average'])
+            }
     return jsonify(resp)

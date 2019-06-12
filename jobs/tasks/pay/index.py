@@ -13,9 +13,9 @@ class JobTask():
 		pass
 	def run(self,params):
 		now = datetime.datetime.now()
-		date_before_30min = now + datetime.timedelta( minutes = -30 )
-		list = PayOrder.query.filter_by( status = -8 ).\
-			filter( PayOrder.created_time <= getFormatDate( date = date_before_30min ) ).all()
+		date_before_30min = now + datetime.timedelta(minutes=-30)
+		list = PayOrder.query.filter_by(status=-8).\
+			filter(PayOrder.created_time <= getFormatDate(date=date_before_30min)).all()
 		if not list:
 			app.logger.info("no data~~")
 			return

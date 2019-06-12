@@ -55,20 +55,20 @@
                 <td>{{ item.mobile  }}</td>
                 <td>{{ item.email  }}</td>
                 <td>
-                    <a href="{{ buildUrl('/account/info' ) }}?id={{ item.aidr  }}">
+                    <a href="{{ buildUrl('/account/info' ) }}?id={{ item.aid  }}">
                         <i class="fa fa-eye fa-lg"></i>
                     </a>
 
                     {%  if item.status == 1 %}
-                    <a class="m-l" href="{{ buildUrl('/account/set') }}?id={{ item.aidr  }}">
+                    <a class="m-l" href="{{ buildUrl('/account/set') }}?id={{ item.aid  }}">
                         <i class="fa fa-edit fa-lg"></i>
                     </a>
 
-                    <a class="m-l remove" href="javascript:void(0);" data="{{ item.aidr }}">
+                    <a class="m-l remove" href="javascript:void(0);" data="{{ item.aid }}">
                         <i class="fa fa-trash fa-lg"></i>
                     </a>
                     {% else %}
-                    <a class="m-l recover" href="javascript:void(0);" data="{{ item.aidr }}">
+                    <a class="m-l recover" href="javascript:void(0);" data="{{ item.aid }}">
                         <i class="fa fa-rotate-left fa-lg"></i>
                     </a>
                     {% endif %}

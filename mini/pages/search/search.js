@@ -7,7 +7,7 @@ Page({
     var that = this;
     WxSearch.init(
       that,  // 本页面一个引用
-      ['三毛', '世界名著', "张爱玲", "三体", '健身', '数学'], // 热点搜索推荐，[]表示不使用
+      ['世界名著', "张爱玲", "文学"], // 热点搜索推荐，[]表示不使用
       [],// 搜索匹配，[]表示不使用
       that.mySearchFunction, // 提供一个搜索回调函数
       that.myGobackFunction //提供一个返回回调函数
@@ -24,8 +24,9 @@ Page({
   mySearchFunction: function (value) {
     // do your job here
     // 跳转
+    console.log(value)
     wx.navigateTo({
-      url: '../search/searchInfo?searchValue='+value
+      url: '/pages/search/searchInfo?searchValue='+value
     })
   },
   // 返回回调函数

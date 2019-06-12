@@ -37,7 +37,7 @@ def orderInfo():
             tmp_data = {
                 "id": item.book_id,
                 "title": item.book_title,
-                "price": str(item.book_price),
+                "price": str(round((float(item.book_oprice)*float(item.book_degrees)/10),2)),
                 'main_image': str(item.book_main_image),
                 'number': book_dic[str(item.book_id)]
             }

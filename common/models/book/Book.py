@@ -1,7 +1,10 @@
 # coding: utf-8
 from sqlalchemy import Column, DateTime, Float, Integer, Numeric, String, Text
 from sqlalchemy.schema import FetchedValue
-from application import db
+from flask_sqlalchemy import SQLAlchemy
+
+
+db = SQLAlchemy()
 
 
 class Book(db.Model):
@@ -29,3 +32,4 @@ class Book(db.Model):
     book_comment_count = db.Column(db.Integer, nullable=False, server_default=db.FetchedValue())
     book_updated_time = db.Column(db.DateTime, nullable=False, server_default=db.FetchedValue())
     book_created_time = db.Column(db.DateTime, nullable=False, server_default=db.FetchedValue())
+    book_recomm_image = db.Column(db.String(1000), server_default=db.FetchedValue())

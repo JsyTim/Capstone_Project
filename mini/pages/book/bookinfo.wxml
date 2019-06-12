@@ -2,7 +2,7 @@
 <view class="main-container">
     <!--图书详情-->
       <van-card
-        origin-price="8.94"
+        origin-price="{{oprice}}"
         price="{{price}}"
         title="{{title}}"
         thumb="{{main_image}}"
@@ -16,7 +16,7 @@
           />
         </view>
         <view slot="tags" style="padding-top:110rpx;">
-          <van-tag size="large" round color="#f2826a" plain>3折</van-tag>
+          <van-tag size="large" round color="#f2826a" plain>{{degrees}}折</van-tag>
         </view>
 
       </van-card>
@@ -47,14 +47,9 @@
     </view>
     <view class="recommended-container">
         <view class="book">
-            <image src="https://img3.doubanio.com/view/subject/l/public/s2976745.jpg" bindtap="bookDetailBtn" id="{{bookRecommend[0].bookId}}"></image>
-            <image src="https://img3.doubanio.com/view/subject/l/public/s3695882.jpg" bindtap="bookDetailBtn" id="{{bookRecommend[1].bookId}}"></image>
-            <image src="https://img1.doubanio.com/view/subject/l/public/s2838737.jpg" bindtap="bookDetailBtn" id="{{bookRecommend[2].bookId}}">半生缘</image>
-        </view>
-        <view class="book">
-            <image src="http:{{bookRecommend[3].bookImageBig}}" bindtap="bookDetailBtn" id="{{bookRecommend[3].bookId}}"></image>
-            <image src="http:{{bookRecommend[4].bookImageBig}}" bindtap="bookDetailBtn" id="{{bookRecommend[4].bookId}}"></image>
-            <image src="http:{{bookRecommend[5].bookImageBig}}" bindtap="bookDetailBtn" id="{{bookRecommend[5].bookId}}"></image>
+            <image src="{{image_url1}}" bindtap="bookDetailBtn" id="{{bookRecommend[0].bookId}}"></image>
+            <image src="{{image_url2}}" bindtap="bookDetailBtn" id="{{bookRecommend[1].bookId}}"></image>
+            <image src="{{image_url3}}" bindtap="bookDetailBtn" id="{{bookRecommend[2].bookId}}"></image>
         </view>
     </view>
 
