@@ -15,10 +15,10 @@ var upload = {
         } else {
             $(".upload_pic_wrap").append('<span class="pic-each">' + html + '</span>');
         }
-        food_set_ops.delete_img();
+        book_set_ops.delete_img();
     }
 };
-var food_set_ops = {
+var book_set_ops = {
     init: function () {
         this.ue = null;
         this.eventBind();
@@ -28,16 +28,16 @@ var food_set_ops = {
     eventBind: function () {
         var that = this;
 
-        $(".wrap_food_set .upload_pic_wrap input[name=pic]").change(function () {
-            $(".wrap_food_set .upload_pic_wrap").submit();
+        $(".wrap_book_set .upload_pic_wrap input[name=pic]").change(function () {
+            $(".wrap_book_set .upload_pic_wrap").submit();
         });
 
-        $(".wrap_food_set select[name=cat_id]").select2({
+        $(".wrap_book_set select[name=cat_id]").select2({
             language: "zh-CN",
             width: '100%'
         });
 
-        $(".wrap_food_set input[name=tags]").tagsInput({
+        $(".wrap_book_set input[name=tags]").tagsInput({
             width: 'auto',
             height: 40,
             onAddTag: function (tag) {
@@ -46,28 +46,28 @@ var food_set_ops = {
             }
         });
 
-        $(".wrap_food_set .save").click(function () {
+        $(".wrap_book_set .save").click(function () {
             var btn_target = $(this);
             if (btn_target.hasClass("disabled")) {
                 common_ops.alert("正在处理!!请不要重复提交~~");
                 return;
             }
 
-            var cat_id_target = $(".wrap_food_set select[name=cat_id]");
+            var cat_id_target = $(".wrap_book_set select[name=cat_id]");
             var cat_id = cat_id_target.val();
 
-            var name_target = $(".wrap_food_set input[name=name]");
-            var name = name_target.val();
+            var title_target = $(".wrap_book_set input[name=title]");
+            var title = title_target.val();
 
-            var price_target = $(".wrap_food_set input[name=price]");
+            var price_target = $(".wrap_book_set input[name=price]");
             var price = price_target.val();
 
             var summary = $.trim(that.ue.getContent());
 
-            var stock_target = $(".wrap_food_set input[name=stock]");
+            var stock_target = $(".wrap_book_set input[name=stock]");
             var stock = stock_target.val();
 
-            var tags_target = $(".wrap_food_set input[name=tags]");
+            var tags_target = $(".wrap_book_set input[name=tags]");
             var tags = $.trim(tags_target.val());
 
             if (parseInt(cat_id) < 1) {
@@ -85,12 +85,12 @@ var food_set_ops = {
                 return;
             }
 
-            if ($(".wrap_food_set .pic-each").size() < 1) {
+            if ($(".wrap_book_set .pic-each").size() < 1) {
                 common_ops.alert("请上传封面图~~");
                 return;
             }
 
-            if (summary.length < 10) {
+            if (desc.length < 10) {
                 common_ops.tip("请输入描述，并不能少于10个字符~~", price_target);
                 return;
             }

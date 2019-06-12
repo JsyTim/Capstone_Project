@@ -14,7 +14,8 @@ from common.models.member.Member import Member
 def scan():
     resp = {'code': 200, 'msg': '操作成功~', 'data': {}}
     req = request.values
-    # id = int(req['id']) if 'id' in req else 0
+    isbn = int(req['isbn']) if 'isbn' in req else 0
+    print(isbn)
     # book_info = Book.query.filter_by(book_id=id).first()
     # if not book_info or book_info.book_status == 0:
     #     resp['code'] = -1

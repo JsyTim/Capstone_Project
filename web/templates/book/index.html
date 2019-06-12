@@ -48,7 +48,9 @@
             <thead>
             <tr>
                 <th>书名</th>
+                <th>作者</th>
                 <th>类别</th>
+                <th>出版社</th>
                 <th>价格</th>
                 <th>库存</th>
                 <th>标签</th>
@@ -59,25 +61,27 @@
              {% if list %}
                 {% for item in list %}
             <tr>
-                <td>{{ item.name }}</td>
+                <td>{{ item.book_title }}</td>
+                <td>{{ item.book_author }}</td>
                 <td>{{ cat_mapping[ item.cat_id].name  }}</td>
-                <td>{{ item.price }}</td>
-                <td>{{ item.stock }}</td>
+                <td>{{ item.book_press }}</td>
+                <td>{{ item.book_price }}</td>
+                <td>{{ item.book_stock }}</td>
                 <td>{{ item.tags }}</td>
                 <td>
-                    <a href="{{ buildUrl('/book/info') }}?id={{ item.id  }}">
+                    <a href="{{ buildUrl('/book/info') }}?id={{ item.book_id  }}">
                         <i class="fa fa-eye fa-lg"></i>
                     </a>
-                     {%  if item.status == 1 %}
-                    <a class="m-l" href="{{ buildUrl('/book/set') }}?id={{ item.id  }}">
-                        <i class="fa fa-edit fa-lg"></i>
-                    </a>
+                     {%  if item.book_status == 1 %}
+                        <a class="m-l" href="{{ buildUrl('/book/set') }}?id={{ item.book_id  }}">
+                            <i class="fa fa-edit fa-lg"></i>
+                        </a>
 
-                    <a class="m-l remove" href="javascript:void(0);" data="{{ item.id  }}">
-                        <i class="fa fa-trash fa-lg"></i>
-                    </a>
+                        <a class="m-l remove" href="javascript:void(0);" data="{{ item.book_id  }}">
+                            <i class="fa fa-trash fa-lg"></i>
+                        </a>
                     {% else %}
-                       <a class="m-l recover" href="javascript:void(0);" data="{{ item.id  }}">
+                       <a class="m-l recover" href="javascript:void(0);" data="{{ item.book_id  }}">
                         <i class="fa fa-rotate-left fa-lg"></i>
                     </a>
                     {% endif %}
@@ -85,7 +89,7 @@
             </tr>
              {% endfor %}
             {% else %}
-                <tr><td colspan="6">暂无数据~~</td></tr>
+                <tr><td colspan="8">暂无数据~~</td></tr>
             {% endif %}
             </tbody>
         </table>

@@ -79,7 +79,7 @@ def book():
     list = query.order_by(StatDailyBook.id.desc()).offset(offset).limit(app.config['PAGE_SIZE']).all()
     date_list = []
     if list:
-        book_map = getDictFilterField(Book, Book.id, "id", selectFilterObj(list, "book_id"))
+        book_map = getDictFilterField(Book, Book.book_id, "book_id", selectFilterObj(list, "book_id"))
         for item in list:
             tmp_book_info = book_map[item.book_id] if item.book_id in book_map else {}
             tmp_data = {

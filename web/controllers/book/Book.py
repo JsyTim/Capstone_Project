@@ -81,8 +81,8 @@ def set():
         resp_data = {}
         req = request.args
         id = int(req.get('id', 0))
-        info = Book.query.filter_by(id=id).first()
-        if info and info.status != 1:
+        info = Book.query.filter_by(book_id=id).first()
+        if info and info.book_status != 1:
             return redirect(UrlManager.buildUrl("/book/index"))
 
         cat_list = BookCat.query.all()
