@@ -27,15 +27,13 @@ def orderInfo():
 
     book_dic = {}
     for item in params_goods_list:
-        book_dic[item['id']] = item['number']
+        book_dic[str(item['id'])] = item['number']
     book_ids = book_dic.keys()
     book_list = Book.query.filter(Book.book_id.in_(book_ids)).all()
     data_book_list = []
     yun_price = pay_price = decimal.Decimal(0.00)
     if book_list:
         for item in book_list:
-            print(book_dic)
-            print(item.book_id)
             tmp_data = {
                 "id": item.book_id,
                 "title": item.book_title,
@@ -75,7 +73,8 @@ def orderCreate():
     items = []
     if params_goods:
         items = json.loads(params_goods)
-
+    print(items)
+    print(params_goods)
     if len(items) < 1:
         resp['code'] = -1
         resp['msg'] = "下单失败：没有选择商品"
@@ -104,6 +103,30 @@ def orderCreate():
     if resp['code'] == 200 and type == "cart":
         CartService.deleteItem(member_info.id, items)
 
+    return jsonify(resp)
+
+
+@route_mini.route("/order/pay", methods=["GET", "POST"])
+def orderPay():
+    resp = {'code': 200, 'msg': '操作成功', 'data': {}}
+    member_info = g.member_info
+    req = request.values
+    order_sn = req['order_sn'] if 'order_sn' in req else ''
+    pay_order_info = PayOrder.query.filter_by(order_sn=order_sn, member_id=member_info.id).first()
+    if not pay_order_info:
+        resp['code'] = -1
+        resp['msg'] = "系统繁忙。请稍后再试~~"
+        return jsonify(resp)
+
+    oauth_bind_info = OauthMemberBind.query.filter_by(member_id=member_info.id).first()
+    if not oauth_bind_info:
+        resp['code'] = -1
+        resp['msg'] = "系统繁忙。请稍后再试~~"
+        return jsonify(resp)
+
+    pay_order_info.status = 1
+    db.session.add(pay_order_info)
+    db.session.commit()
     return jsonify(resp)
 
 

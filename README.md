@@ -44,3 +44,5 @@ flask-sqlacodegen "mysql://root:123456@127.0.0.1/book_db" --tables stat_daily_si
 
 
 flask-sqlacodegen "mysql://root:123456@127.0.0.1/book_db" --tables oauth_member_bind --outfile "common/models/member/OauthMemberBind.py"  --flask
+
+python manager.py runjob -m stat/daily -a test

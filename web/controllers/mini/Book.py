@@ -16,7 +16,7 @@ from common.models.member.Member import Member
 def bookIndex():
     resp = {'code': 200, 'msg': '操作成功~', 'data': {}}
     book_list = Book.query.filter_by(book_status=1)\
-        .order_by(Book.book_total_count.desc(), Book.book_id.desc()).limit(20).all()
+        .order_by(Book.book_total_count, Book.book_id).limit(23).all()
 
     data_book_list = []
     if book_list:
@@ -24,7 +24,7 @@ def bookIndex():
             tmp_data = {
                 'id': item.book_id,
                 'title': str(item.book_title),
-                'price': str(item.book_price),
+                'price': str(round((float(item.book_oprice)*0.3), 2)),
                 'oprice': str(item.book_oprice),
                 'author': item.book_author,
                 'grade': str(round(item.book_grade, 1)),
@@ -48,10 +48,10 @@ def bookInfo():
         resp['msg'] = "图书已下架"
         return jsonify(resp)
 
-    # member_info = g.member_info
-    # cart_number = 0
-    # if member_info:
-    #     cart_number = MemberCart.query.filter_by(member_id=member_info.id).count()
+    member_info = g.member_info
+    cart_number = 0
+    if member_info:
+        cart_number = MemberCart.query.filter_by(member_id=member_info.id).count()
     resp['data'] = {
         "id": book_info.book_id,
         "title": book_info.book_title,
@@ -69,7 +69,7 @@ def bookInfo():
         "comment_count": book_info.book_comment_count,
 
     }
-    # resp['data']['cart_number'] = cart_number
+    resp['data']['cart_number'] = cart_number
     return jsonify(resp)
 
 
@@ -100,3 +100,4 @@ def bookComments():
     resp['data']['list'] = data_list
     resp['data']['count'] = query.count()
     return jsonify(resp)
+

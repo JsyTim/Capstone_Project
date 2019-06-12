@@ -21,6 +21,16 @@ Component({
                         app.alert({'content': res.data.msg });
                         return;
                     }
+                    Dialog.confirm({
+                      title: '回收信息',
+                      message: '建议回收价为' + JSON()
+                    }).then(() => {
+                      // on confirm
+                      
+                    }).catch(() => {
+                      // on cancel
+                    });
+                    console.log(res);
                   }
                 })
             },

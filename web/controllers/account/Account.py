@@ -66,7 +66,7 @@ def info():
 
 @route_account.route("/set", methods=["GET", "POST"])
 def set():
-    # default_pwd = "******"
+    default_pwd = "******"
     if request.method == "GET":
         resp_data = {}
         req = request.args
@@ -130,13 +130,13 @@ def set():
     model_admin.mobile = mobile
     model_admin.email = email
     model_admin.login_name = login_name
-    # if login_pwd != default_pwd:
+    if login_pwd != default_pwd:
     #     if admin_info and admin_info.aid == 1:
     #         resp['code'] = -1
     #         resp['msg'] = "该用户是演示账号，不准修改密码和登录用户名"
     #         return jsonify(resp)
 
-        # model_admin.login_pwd = AdminService.genePwd(login_pwd, model_admin.login_salt)
+        model_admin.login_pwd = AdminService.genePwd(login_pwd, model_admin.login_salt)
 
     model_admin.updated_time = getCurrentDate()
     db.session.add(model_admin)

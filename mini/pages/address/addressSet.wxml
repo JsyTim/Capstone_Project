@@ -1,5 +1,5 @@
 <!--pages/addressSet/index.wxml-->
-<cu-custom bgColor="bg-orange"><view slot="content">新增地址</view></cu-custom>
+<cu-custom bgColor="bg-orange"><view slot="content">地址信息</view></cu-custom>
 
 <view class="cu-form-group">
   <view class="title">联系人</view>

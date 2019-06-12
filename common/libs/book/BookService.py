@@ -20,13 +20,12 @@ class BookService():
 
         if book_id < 1:
             return False
-
         book_info = Book.query.filter_by(book_id=book_id).first()
         if not book_info:
             return False
 
         model_stock_change = BookStockChangeLog()
-        model_stock_change.bood_id = book_id
+        model_stock_change.book_id = book_id
         model_stock_change.unit = quantity
         model_stock_change.total_stock = book_info.book_stock
         model_stock_change.note = note

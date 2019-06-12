@@ -38,7 +38,7 @@
       <text style="font-size:20rpx;">\n豆瓣评分: {{item.grade}}</text>
     </view>
     <view slot="tags" style="padding-top:60rpx;">
-      <van-tag size="medium" round color="#f2826a" plain>3.4折</van-tag>
+      <van-tag size="medium" round color="#f2826a" plain>3.0折</van-tag>
     </view>
   </van-card>
 </view>

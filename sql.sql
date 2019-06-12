@@ -2,7 +2,7 @@
 
 CREATE DATABASE `book_db` DEFAULT CHARACTER SET = `utf8mb4`;
 
-
+SELECT * FROM book
 
 DROP TABLE IF EXISTS `user`;
 SELECT * FROM admin
@@ -46,6 +46,7 @@ CREATE TABLE `app_access_log` (
 
 
 DROP TABLE IF EXISTS `app_error_log`;
+SELECT * FROM app_error_log
 CREATE TABLE `app_error_log` (
   `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `referer_url` VARCHAR(255) NOT NULL DEFAULT '' COMMENT '当前访问的refer',
@@ -56,11 +57,11 @@ CREATE TABLE `app_error_log` (
   PRIMARY KEY (`id`)
 ) ENGINE=INNODB  DEFAULT CHARSET=utf8mb4 COMMENT='app错误日表';
 
-
+SELECT * FROM book
 
 DROP TABLE IF EXISTS `member`;
-SELECT * FROM member 
-
+SELECT * FROM book 
+SELECT * FROM member_address
 
 DROP TABLE IF EXISTS `oauth_member_bind`;
 SELECT * FROM member
@@ -79,7 +80,7 @@ CREATE TABLE `oauth_member`book`_bind` (
   KEY `idx_type_openid` (`type`,`openid`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='第三方登录绑定关系';
 
-
+SELECT * FROM pay_order
 
 DROP TABLE IF EXISTS `book`;
 SELECT * FROM member_address
@@ -139,7 +140,7 @@ SELECT * FROM book_cat
 
 CREATE TABLE `book_cat` (
   `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `book_classify_name` VARCHAR(32) NOT NULL COMMENT '书籍分类名称',
+  `name` VARCHAR(32) NOT NULL COMMENT '书籍分类名称',
   `weight` TINYINT(4) NOT NULL DEFAULT '1' COMMENT '权重',
   `status` TINYINT(1) NOT NULL DEFAULT '1' COMMENT '状态 1：有效 0：无效',
   `updated_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '最后一次更新时间',
@@ -216,8 +217,8 @@ CREATE TABLE `member_address` (
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='会员收货地址';
 
 
-SELECT*FROM book
-
+SELECT*FROM pay_order
+truncate table pay_order
 DROP TABLE IF EXISTS `member_cart`;
 SELECT * FROM member_cart
 CREATE TABLE `member_cart` (
@@ -262,6 +263,7 @@ CREATE TABLE `member_comments` (
 
 
 DROP TABLE IF EXISTS `pay_order`;
+select * from book
 
 CREATE TABLE `pay_order` (
   `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -350,7 +352,7 @@ CREATE TABLE `oauth_access_token` (
 
 
 DROP TABLE IF EXISTS `stat_daily_food`;
-SELECT * FROM stat_daily_food
+SELECT * FROM stat_daily_book
 CREATE TABLE `stat_daily_book` (
   `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `date` DATE NOT NULL,
@@ -398,7 +400,14 @@ CREATE TABLE `stat_daily_site` (
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='全站日统计';
 
 
+DROP TABLE IF EXISTS `images`;
 
+CREATE TABLE `images` (
+  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `file_key` VARCHAR(60) NOT NULL DEFAULT '' COMMENT '文件名',
+  `created_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '插入时间',
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
 
 
 

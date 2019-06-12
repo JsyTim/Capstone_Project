@@ -15,6 +15,7 @@
     <text class="flow-text">审核通过\n书款到账</text>
   </view>
 
+  <van-dialog id="van-dialog" />
 
     <view class="cu-list menu {{'sm-border'}} ">
       <view class="cu-item {{'arrow'}}">

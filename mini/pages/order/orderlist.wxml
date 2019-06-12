@@ -1,4 +1,4 @@
-<cu-custom bgColor="bg-orange"><view slot="content">订单列表</view></cu-custom>
+<cu-custom bgColor="bg-orange" isBack="{{true}}"><view slot="content">订单详情</view></cu-custom>
 
 <view class="container">
     <view class="status-box">
@@ -13,7 +13,7 @@
     </view>
     <view class="order-list" wx:if="{{order_list.length}}">
         <view class="a-order" wx:for="{{order_list}}" wx:key="{{index}}" wx:for-item="item">
-            <view class="order-date" data-id="{{item. h7}}" bindtap="orderDetail">
+            <view class="order-date" data-id="{{item.order_sn}}" bindtap="orderDetail">
                 <view class="date-box">下单时间：{{item.date}}</view>
                 <view class="status {{(item.status==0 || item.status==1) ? '':'red'}}">{{item.status_desc}}</view>
             </view>
@@ -26,10 +26,11 @@
             <view >
                 <scroll-view class="goods-img-container" scroll-x="true">
                     <view class="img-box" wx:for="{{item.goods_list}}" wx:for-item="itemGood">
-                        <image src="{{itemGood.pic_url}}" class="goods-img"></image>
+                        <image src="{{itemGood.main_image}}" class="goods-img"></image>
                     </view>
                 </scroll-view>
             </view>
+            <van-toast id="van-toast"/>
             <view class="price-box">
                 <view class="total-price">合计：¥ {{item.total_price}}</view>
                 <view class="btn cancel-btn" bindtap="orderCancel" data-id="{{item.order_sn}}" wx:if="{{item.status==-8}}">取消订单</view>

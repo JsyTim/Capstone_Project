@@ -20,11 +20,11 @@ def index():
     page = int(req['p']) if ('p' in req and req['p']) else 1
     query = Book.query
     if 'mix_kw' in req:
-        rule = or_(Book.name.ilike("%{0}%".format(req['mix_kw'])), Book.tags.ilike("%{0}%".format(req['mix_kw'])))
+        rule = or_(Book.book_title.ilike("%{0}%".format(req['mix_kw'])), Book.tags.ilike("%{0}%".format(req['mix_kw'])))
         query = query.filter(rule)
 
     if 'status' in req and int(req['status']) > -1:
-        query = query.filter(Book.status == int(req['status']))
+        query = query.filter(Book.book_status == int(req['status']))
 
     if 'cat_id' in req and int(req['cat_id']) > 0:
         query = query.filter(Book.cat_id == int(req['cat_id']))
@@ -62,7 +62,7 @@ def info():
     if id < 1:
         return redirect(reback_url)
 
-    info = Book.query.filter_by(id=id).first()
+    info = Book.query.filter_by(book_id=id).first()
     if not info:
         return redirect(reback_url)
 
@@ -95,10 +95,10 @@ def set():
     req = request.values
     id = int(req['id']) if 'id' in req and req['id'] else 0
     cat_id = int(req['cat_id']) if 'cat_id' in req else 0
-    name = req['name'] if 'name' in req else ''
+    title = req['title'] if 'name' in req else ''
     price = req['price'] if 'price' in req else ''
     main_image = req['main_image'] if 'main_image' in req else ''
-    summary = req['summary'] if 'summary' in req else ''
+    desc = req['desc'] if 'desc' in req else ''
     stock = int(req['stock']) if 'stock' in req else ''
     tags = req['tags'] if 'tags' in req else ''
 
@@ -107,7 +107,7 @@ def set():
         resp['msg'] = "请选择分类~~"
         return jsonify(resp)
 
-    if name is None or len(name) < 1:
+    if title is None or len(title) < 1:
         resp['code'] = -1
         resp['msg'] = "请输入符合规范的名称~~"
         return jsonify(resp)
@@ -128,7 +128,7 @@ def set():
         resp['msg'] = "请上传封面图~~"
         return jsonify(resp)
 
-    if summary is None or len(summary) < 3:
+    if desc is None or len(desc) < 3:
         resp['code'] = -1
         resp['msg'] = "请输入图书描述，并不能少于10个字符~~"
         return jsonify(resp)
@@ -142,7 +142,7 @@ def set():
         resp['code'] = -1
         resp['msg'] = "请输入标签，便于搜索~~"
         return jsonify(resp)
-    book_info = Book.query.filter_by(id=id).first()
+    book_info = Book.query.filter_by(book_id=id).first()
     before_stock = 0
     if book_info:
         model_book = book_info
@@ -153,11 +153,11 @@ def set():
         model_book.created_time = getCurrentDate()
 
     model_book.cat_id = cat_id
-    model_book.name = name
-    model_book.price = price
-    model_book.main_image = main_image
-    model_book.summary = summary
-    model_book.stock = stock
+    model_book.book_title = title
+    model_book.book_price = price
+    model_book.book_main_image = main_image
+    model_book.book_desc = desc
+    model_book.book_stock = stock
     model_book.tags = tags
     model_book.updated_time = getCurrentDate()
 
@@ -271,12 +271,12 @@ def ops():
         resp['msg'] = "请选择要操作的账号~~"
         return jsonify(resp)
 
-    if act not in [ 'remove','recover' ]:
+    if act not in ['remove', 'recover']:
         resp['code'] = -1
         resp['msg'] = "操作有误，请重试~~"
         return jsonify(resp)
 
-    book_info = Book.query.filter_by( id = id ).first()
+    book_info = Book.query.filter_by(book_id=id).first()
     if not book_info:
         resp['code'] = -1
         resp['msg'] = "指定图书不存在~~"

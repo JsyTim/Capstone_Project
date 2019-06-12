@@ -9,7 +9,7 @@ from web.controllers.mini.Order import *
 from web.controllers.mini.My import *
 from web.controllers.mini.Cart import *
 from web.controllers.mini.Address import *
-
+from web.controllers.mini.Scan import *
 
 @route_mini.route("/")
 def index():

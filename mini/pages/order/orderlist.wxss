@@ -21,8 +21,8 @@
     position: relative;
 }
 .status-box .status-label.active{
-    color:#e64340;
-    border-bottom: 6rpx solid #e64340;
+    color:#f37b1d;
+    border-bottom: 6rpx solid #f37b1d;
 }
 .status-box .status-label .red-dot{
     width: 16rpx;
@@ -37,7 +37,7 @@
     width: 100%;
     position: absolute;
     bottom: 0;
-    top: 88rpx;
+    top: 200rpx;
     left: 0;
     right: 0;
     text-align: center;
@@ -153,4 +153,3 @@
     border:1px solid #e64340;
     color: #e64340;
 }
-/* pages/order/orderlist.wxss */

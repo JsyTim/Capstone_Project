@@ -41,16 +41,16 @@ def index():
         pay_order_items_map = getDictListFilterField(PayOrderItem, PayOrderItem.pay_order_id, "pay_order_id",
                                                      pay_order_ids)
 
-        food_mapping = {}
+        book_mapping = {}
         if pay_order_items_map:
-            food_ids = []
+            book_ids = []
             for item in pay_order_items_map:
-                tmp_food_ids = selectFilterObj(pay_order_items_map[item], "food_id")
-                tmp_food_ids = {}.fromkeys(tmp_food_ids).keys()
-                food_ids = food_ids + list(tmp_food_ids)
+                tmp_book_ids = selectFilterObj(pay_order_items_map[item], "book_id")
+                tmp_book_ids = {}.fromkeys(tmp_book_ids).keys()
+                book_ids = book_ids + list(tmp_book_ids)
 
             # book_ids里面会有重复的，要去重
-            food_mapping = getDictFilterField(Book, Book.id, "id", food_ids)
+            book_mapping = getDictFilterField(Book, Book.book_id, "book_id", book_ids)
 
         for item in pay_list:
             tmp_data = {
@@ -61,16 +61,16 @@ def index():
                 "pay_time": item.pay_time,
                 "created_time": item.created_time.strftime("%Y%m%d%H%M%S")
             }
-            tmp_foods = []
+            tmp_books = []
             tmp_order_items = pay_order_items_map[item.id]
             for tmp_order_item in tmp_order_items:
-                tmp_food_info = food_mapping[tmp_order_item.food_id]
-                tmp_foods.append({
-                    'name': tmp_food_info.name,
+                tmp_book_info = book_mapping[tmp_order_item.book_id]
+                tmp_books.append({
+                    'title': tmp_book_info.book_title,
                     'quantity': tmp_order_item.quantity
                 })
 
-            tmp_data['foods'] = tmp_foods
+            tmp_data['books'] = tmp_books
             data_list.append(tmp_data)
 
     resp_data['list'] = data_list
@@ -104,13 +104,13 @@ def payInfo():
     order_item_list = PayOrderItem.query.filter_by(pay_order_id=pay_order_info.id).all()
     data_order_item_list = []
     if order_item_list:
-        food_map = getDictFilterField(Book, Book.id, "id", selectFilterObj(order_item_list, "food_id"))
+        book_map = getDictFilterField(Book, Book.book_id, "book_id", selectFilterObj(order_item_list, "book_id"))
         for item in order_item_list:
-            tmp_food_info = food_map[item.food_id]
+            tmp_book_info = book_map[item.book_id]
             tmp_data = {
                 "quantity": item.quantity,
                 "price": item.price,
-                "name": tmp_food_info.name
+                "title": tmp_book_info.book_title
             }
             data_order_item_list.append(tmp_data)
 

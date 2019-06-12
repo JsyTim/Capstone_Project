@@ -1,3 +1,6 @@
 {
-    "navigationBarTitleText":  "扫码卖书"
+    "navigationBarTitleText":  "扫码卖书",
+    "usingComponents": {
+      "van-dialog": "../../vant/dialog/index"
+    }
 }

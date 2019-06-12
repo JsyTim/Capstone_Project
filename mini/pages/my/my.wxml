@@ -13,39 +13,21 @@
     <image src="https://image.weilanwl.com/gif/wave.gif" mode="scaleToFill" class="gif-wave"></image>
 </view>
 
-<view class="padding flex text-center text-grey bg-white shadow-warp">
-    <view class="flex flex-sub flex-direction solid-right">
-      <view class="text-xxl text-orange">{{visitTotal}}</view>
-      <view class="margin-top-sm">
-        <text class="cuIcon-attentionfill"></text> 买书数量</view>
-    </view>
-    <view class="flex flex-sub flex-direction solid-right">
-      <view class="text-xxl text-blue">{{starCount}}</view>
-      <view class="margin-top-sm">
-        <text class="cuIcon-favorfill"></text> 卖书数量</view>
-    </view>
-    <view class="flex flex-sub flex-direction">
-      <view class="text-xxl text-green">{{forksCount}}</view>
-      <view class="margin-top-sm">
-        <text class="cuIcon-fork"></text> 点赞数量</view>
-    </view>
-</view>
-
 <view class="cu-list menu {{'sm-border'}} {{'card-menu margin-top'}}">
   <view class="cu-item {{'arrow'}}">
-    <navigator class="content" hover-class="none" url="/order_list" open-type="redirect">
+    <navigator class="content" hover-class="none" url="../order/orderlist" open-type="redirect">
       <text class="cuIcon-discoverfill text-orange"></text>
       <text class="text-grey">我的订单</text>
     </navigator>
   </view>
   <view class="cu-item {{'arrow'}}">
-    <navigator class="content" hover-class="none" url="/addressList" open-type="redirect">
+    <navigator class="content" hover-class="none" url="../address/addressList" open-type="redirect">
       <text class="cuIcon-discoverfill text-blue"></text>
       <text class="text-grey">我的地址</text>
     </navigator>
   </view>
   <view class="cu-item {{'arrow'}}">
-    <navigator class="content" hover-class="none" url="/comment" open-type="redirect">
+    <navigator class="content" hover-class="none" url="../my/commentList" open-type="redirect">
       <text class="cuIcon-discoverfill text-green"></text>
       <text class="text-grey">我的评价</text>
     </navigator>

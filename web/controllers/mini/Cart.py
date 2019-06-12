@@ -76,7 +76,7 @@ def setCart():
 
 @route_mini.route("/cart/del", methods=["POST"])
 def delCart():
-    resp = {'code': 200, 'msg': '添加购物车成功', 'data': {}}
+    resp = {'code': 200, 'msg': '操作购物车成功', 'data': {}}
     req = request.values
     params_goods = req['goods'] if 'goods' in req else None
 

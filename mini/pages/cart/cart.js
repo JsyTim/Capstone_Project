@@ -74,7 +74,6 @@ Page({
         if (book_list[parseInt(index)].number > 1) {
             book_list[parseInt(index)].number--;
             this.setPageData(this.getSaveHide(), this.totalPrice(), this.allSelect(), this.noSelect(), book_list);
-
             this.setCart( book_list[parseInt(index)].book_id,book_list[parseInt(index)].number );
         }
     },

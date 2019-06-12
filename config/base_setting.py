@@ -41,9 +41,7 @@ STATUS_MAPPING = {
 MINA_APP = {
     'appid': 'wx26658096642fb61a',
     'appkey': 'b5e3a4aa9e061aeef3efc0b9975f75fe',
-    # 'paykey': 'xxxxxxxxxxxxxx换自己的',
-    # 'mch_id': 'xxxxxxxxxxxx换自己的',
-    'callback_url': '/api/order/callback'
+    'callback_url': '/mini/order/callback'
 }
 
 UPLOAD = {

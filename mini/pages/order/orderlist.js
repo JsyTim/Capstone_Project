@@ -1,4 +1,5 @@
 var app = getApp();
+import Toast from '../../vant/toast/toast';
 Page({
     data: {
         order_list:[],
@@ -16,7 +17,7 @@ Page({
     },
     orderDetail: function (e) {
         wx.navigateTo({
-            url: "/pages/order/orderinfo?order_sn=" + e.currentTarget.dataset.id
+            url: "/pages/my/order_info?order_sn=" + e.currentTarget.dataset.id
         })
     },
     onLoad: function (options) {
@@ -31,7 +32,7 @@ Page({
     getPayOrder:function(){
         var that = this;
         wx.request({
-            url: app.buildUrl("/order"),
+            url: app.buildUrl("/my/order"),
             header: app.getRequestHeader(),
             data: {
                 status: that.data.status[ that.data.currentType ]
@@ -49,7 +50,7 @@ Page({
             }
         });
     },
-    toPay:function( e ){
+    toPay:function(e){
         var that = this;
         wx.request({
             url: app.buildUrl("/order/pay"),
@@ -65,22 +66,13 @@ Page({
                     return;
                 }
                 var pay_info = resp.data.pay_info;
-                wx.requestPayment({
-                    'timeStamp': pay_info.timeStamp,
-                    'nonceStr': pay_info.nonceStr,
-                    'package': pay_info.package,
-                    'signType': 'MD5',
-                    'paySign': pay_info.paySign,
-                    'success': function (res) {
-                    },
-                    'fail': function (res) {
-                    }
-                });
+                Toast.success('支付成功');
+
             }
         });
     },
     orderConfirm:function( e ){
-        this.orderOps( e.currentTarget.dataset.id,"confirm","确定收到？" );
+        this.orderOps( e.currentTarget.dataset.id,"confirm","确定收货？" );
     },
     orderComment:function( e ){
         wx.navigateTo({

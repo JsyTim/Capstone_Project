@@ -16,10 +16,12 @@ class PayService():
 
     def createOrder(self, member_id, items=None, params=None):
         resp = {'code': 200, 'msg': '操作成功~', 'data': {}}
+        # 默认价格为0
         pay_price = decimal.Decimal(0.00)
         continue_cnt = 0
         book_ids = []
         for item in items:
+            # 防止价格都小于0
             if decimal.Decimal(item['price']) < 0:
                 continue_cnt += 1
                 continue
@@ -39,7 +41,7 @@ class PayService():
         yun_price = decimal.Decimal(yun_price)
         total_price = pay_price + yun_price
         try:
-            #为了防止并发库存出问题了，selectfor update
+            #为了防止并发库存出问题了，select for update
             tmp_book_list = db.session.query(Book).filter(Book.book_id.in_(book_ids))\
                 .with_for_update().all()
 
@@ -70,9 +72,10 @@ class PayService():
                 if int(item['number']) > int(tmp_left_stock):
                     raise Exception("您购买的这图书太火爆了，剩余：%s,你购买%s~~"%(tmp_left_stock, item['number']))
 
-                tmp_ret = Book.query.filter_by(book_id=item['id']).update({
+                tmp_ret = Book.query.filter_by(book_id=item["id"]).update({
                     "book_stock": int(tmp_left_stock) - int(item['number'])
                 })
+
                 if not tmp_ret:
                     raise Exception("下单失败请重新下单")
 
@@ -86,8 +89,10 @@ class PayService():
                 tmp_pay_item.updated_time = tmp_pay_item.created_time = getCurrentDate()
                 db.session.add(tmp_pay_item)
                 #db.session.flush()
-
+                print('服务')
+                print(item['id'])
                 BookService.setStockChangeLog(item['id'], -item['number'], "在线购买")
+
             db.session.commit()
             resp['data'] = {
                 'id': model_pay_order.id,
@@ -96,10 +101,10 @@ class PayService():
             }
         except Exception as e:
             db.session.rollback()
-            # print(e)
+            print(e)
             resp['code'] = -1
             resp['msg'] = "下单失败请重新下单"
-            # resp['msg'] = str(e)
+            resp['msg'] = str(e)
             return resp
         return resp
 
